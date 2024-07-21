@@ -39,3 +39,23 @@ function clearDisplay() {
     operator = null;
     firstNumber = '';
 }
+
+document.addEventListener('keydown', function(event) {
+    const key = event.key;
+    
+    if (!isNaN(key)) {
+        addNumber(key);
+    } else if (key === '+') {
+        setOperator('+');
+    } else if (key === '-') {
+        setOperator('-');
+    } else if (key === '*') {
+        setOperator('x');
+    } else if (key === '/') {
+        setOperator('/');
+    } else if (key === 'Enter') {
+        calculate();
+    } else if (key === 'c' || key === 'C') {
+        clearDisplay();
+    }
+});
